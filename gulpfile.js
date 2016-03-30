@@ -89,7 +89,7 @@ gulp.task('injectVendorJs', ['injectCss'], function() {
   };
 
   var vendorStream = gulp.src(vendorJs)
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./dist/js/'));
 
