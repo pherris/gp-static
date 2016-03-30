@@ -14,10 +14,11 @@ deploy:
   secret_access_key:
     secure: T6REkMBfbF+9P1kQJEXjjrFa9M4z0sd7R40fIws3GgqnW/inGRqOwN0UUni+njWehgipgss1dxuvVowp1Vx5G9Xvy3lI3KQ3JQ3L1w3aDY2hdg79CIPTS/OPIVRYSaQ1gHAB6Nh6ts1GkWO2Jip/RCEcSSG+JN+of/RuP0hbhwZ2QRHg+Ooeq7xukT3sKfi75AeDHrU9Ksbs5fCSi0FECxU2HSvcuyrOxmrBKNf9D8U+ukHgAb20jHL4ExOsAv2BqQq38Oe8KifVYX/j5lm3VofVx0fXzc0ofhaTelpzxuyTFuriKogKmswKE5WPl6TVB3Jk7669gL65em8GzhmCnVFi40QKKczg7XYKa4g8l53iDGOQvV2CYpQMceeaCuoUea0KWEtCtD9IqvjWtDLyY2Rk5+k9tZ1P1dFzPLN/eFroEyy88dEnFuYJd+jdbC0PRvJZnfuofjS8cqNjsEeCP0d8vWPUFS+C91fZPBSJkMqyYIZiDkImiuL/oGY3eHdyrxR/fT7JjE607lJAvMqqIGK3CIhJjOWDEOHtG0mUTCdHIOFtqoJjnStihLzVCh8yDenOYJWh49X1g9tGM5J0ZQuafI4RNQBadhTc+qC1nxdjCg2/jE0+p5cadDg8nZJYvPIUNyaXQQ+Ef2rsXYPJNWiuWIgXc9iBfwcacKprSfQ=
   bucket: gp-static-web
-  local-dir: dist/
+  local-dir: $TRAVIS_BUILD_DIR/dist/
   acl: public_read
   on:
     repo: pherris/gp-static
+  skip_cleanup: true
 notifications:
   email:
     recipients:
