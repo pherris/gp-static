@@ -4,6 +4,9 @@ node_js:
 before_script:
 - npm install -g gulp
 script: gulp build
+before_deploy:
+- ls -ltr
+- ls -ltr dist
 deploy:
   provider: s3
   access_key_id: AKIAJNJTZAAWUKL2J2RQ
