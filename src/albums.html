@@ -1,0 +1,41 @@
+@@include('header.html', {
+    "page": "albums"
+  })
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="images/photos-page-dan.jpg" alt="Complete service for your bike">
+    </div>
+  </div>
+</div><!-- /.carousel -->
+
+<div class="photoPage" ng-app="fbPagesUiApp" ng-controller="PhotoCtrl">
+  <div class="row featurette">
+    <div class="col-xs-12">
+      <h2 class="page featurette-heading">Photo Albums <span class="text-muted">proud to be part of the community</span></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="lead">Check out some of the pictures we've snapped - people, travel, rides and gear, it's an ecletic mix. You never know, you might see a friend in one of the albums!</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-10">
+      <div class="list-group">
+        <a ng-repeat="album in albums.data" ng-if="album.count > 0 && album.name != 'Profile Pictures' && album.name != 'Cover Photos'" class="list-group-item {{ ($stateParams.albumId === album.id) ? 'active' : '' }}" href="{{ album.link }}">
+          {{ album.name}} - <small>updated: {{ album.updated_time | date: short }}</small>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-1">
+    </div>
+  </div>
+</div>
+
+@@include('footer.html', {
+  "page-scripts": "<!-- inject:app:js --><!-- endinject -->"
+})

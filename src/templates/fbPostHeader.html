@@ -1,0 +1,13 @@
+<h4>
+  {{ post.message | limitTo:120 || post.story | limitTo:120 }} 
+</h4>
+
+<h5>
+  <a href="{{ post.link }}"><img ng-src="{{ post.icon }}"/></a> 
+  <small>
+    {{ post.updated_time | date: 'short' }}
+    <span class="text-muted" ng-if="post.likes.data.length > 0">
+      <span class="badge">{{ post.likes.data.length }} {{ (post.likes.data.length > 1) ? 'likes' : 'like' }}</span>
+    </span>
+  </small> 
+</h5>

@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "5.1"
+before_script:
+  - npm install -g gulp
+script: gulp
+deploy:
+  skip_cleanup: true
+  provider: s3
+  access_key_id: AKIAJQPTPQ35QIERGK4Q
+  secret_access_key:
+    secure: lZpMtKhsLhalQiKJVgTpvU/1RJCR1DmYxa6Xxv8a0FHDT+B4gIH11/Wre6+gwrsp54Bb6aNcHdSQMF7UeUZ1kXTqMYR51mMxDDMmfAKbGnLHjHXAPMOmE8J0MAd8Rm1uzNQu2t4+a4BM3omrX/WIy3PTWT6KC/xtxJ/PKAUVqruJtZFtyLyXNWKaNG6Cn/DKhEzKcjgOmsw0+gl49uJIIUXzRFIXomi9Y+73Q1bc/HtQ/2RUA3h46vFjGiTj1Pbn8ixXbnSEor7hHo0tnIEy15TeVMwva4AkrC2xmRjnsJRZ8Pt0lAUNdop6f26+0KC82u7hzekt9n85gHyi0h0Thhn+RL1qFQ/Gz1T1vBc7DkRGLAIENhuzzWfFacds7H6o1LKGw/xyFdPFYgUp/XtaJRw1ee/0k1Vxs5noGVufD3AUFuYukzSBIDGUFBag06nECccyNe9OhfYm10AAxm6dQWmluIsu7TaDBKurM2uckiq6eLuBe55WNn7XlEtgz7OcRzH6E38ebgumArHOrrHxIeUq9Su6FkVruvRbw4XRMqBjYocfZgqi/m9/twY1sZ/OPR+bR/WC8F5QsrBEc0uQk9n885rHkqJFuuZ/uamNXjzk191EOxG6YME3p2/2cCAg/BNAYW6AIX3YUvwj3/fWUgwtAFxY4Zfn0S6yF+fItUg=
+  bucket: gp-static
+  local-dir: $TRAVIS_BUILD_DIR/dist/
+  acl: public_read
+  on:
+    repo: pherris/gp-static
+notifications:
+  email:
+    recipients:
+      - aralston@gmail.com
+    on_success: change
+    on_failure: always
+    branches:
+  only:
+    - master
+    - develop

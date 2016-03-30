@@ -1,0 +1,59 @@
+@@include('header.html', {
+    "page": "index"
+  })
+      <div ng-app="fbPagesUiApp" ng-controller="HomeCtrl">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="images/home-page-shop.jpg" alt="Grand Performance">
+            </div>
+          </div>
+        </div><!-- /.carousel -->
+
+
+        <div class="container marketing">
+
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <a href="/services.html"><img src="/images/zero7-tricolore.png" class="img-responsive" height="227" width="360"/></a>
+              <h2>Service</h2>
+              <p>Our quality and ecletic service department has a combined 45 years of experience. From commuters to race machines, we know how to keep your bike running like new, letting you focus on the riding!</p>
+              <p><a class="btn btn-default" href="services.html" role="button">learn more &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-md-4 text-center">
+              <a href="mailto:info@gpbicycles.com"><img src="/images/Bianchi-Oltre-XR1-2015.png" class="img-responsive" height="215" width="360"/></a>
+              <h2>Grand Performance</h2>
+              <p>Independent and locally owned and operated, Grand Performance brings you the best of all kinds of fine bicycles and bicycling products. From newbies to enthusiasts, we are happy to get everyone properly fitted with the right bike for them. Come in and say hi!</p>
+              <p><a class="btn btn-default" href="mailto:info@gpbicycles.com" role="button">contact us &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-md-4 text-center">
+              <a href="/bikes.html"><img src="/images/Pinarello2016.png" class="img-responsive" height="214" width="360"/></a>
+              <h2>Bikes!</h2>
+              <p>With over 10,000 bikes sold, we know how to help you select, fit and accessorize your new bike to get the most out of it.</p>
+              <p><a class="btn btn-default" href="bikes.html" role="button">bikes &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <div class="fb-like" data-href="{{ page.link }}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            </div>
+          </div>
+
+          <hr/>
+          
+          <div class="row" ng-repeat="post in orderedPosts.high track by $index" ng-if="$index%4==0">
+            <div class="col-xs-12 col-sm-6 col-lg-3 text-center" 
+                 ng-repeat="i in [$index,$index+1,$index+2,$index+3]" 
+                 ng-if="orderedPosts.high[i]!=null"><!-- class="col-xs-12 {{ hasComments(orderedPosts.high[i]) ? 'col-sm-3' : '' }}" -->
+              <fb-post-image post="orderedPosts.high[i]"></fb-post-image>
+              <fb-post-header post="orderedPosts.high[i]"></fb-post-header>
+           </div>
+          </div>
+        </div>
+      </div>
+
+@@include('footer.html', {
+    "page-scripts": "<!-- inject:app:js --><!-- endinject -->"
+  })

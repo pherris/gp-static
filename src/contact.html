@@ -1,0 +1,69 @@
+@@include('header.html', {
+    "page": "contact"
+  })
+
+<div class="row page">
+  <div class="col-md-6">
+    <h4>Grand Performance</h4>
+    1938 Grand Ave · Saint Paul · MN · 55105 <br/>
+    <a href="mailto:info@gpbicycles.com">info@gpbicycles.com</a> · (651) 699-2640
+  </div>
+  <div class="col-md-6">
+    <div id="map_canvas" style="width:100%; height:200px"></div>
+  </div>
+</div>
+<script language="JavaScript">
+function googleMapsInitialized() {
+  var position = new google.maps.LatLng(44.9429088,-93.1832632);
+  var myOptions = {
+    zoom: 14,
+    center: position,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false
+  };
+  var map = new google.maps.Map(
+    document.getElementById('map_canvas'),
+    myOptions);
+
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(44.939914, -93.182111),
+    map: map,
+    title: 'Grand Performance'
+  });
+
+  var contentString = '<strong>Grand Performance</strong><br>1938 Grand Ave · Saint Paul · MN · 55105 <br><a href="mailto:info@gpbicycles.com">info@gpbicycles.com</a> · (651) 699-2640';
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  infowindow.open(map,marker);
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+function sizeAlbums(height) {
+  if (!height) {
+    return;
+  }
+  document.getElementsByClassName('page')[0].style.height   = height + 'px';
+}
+function getHeight() {
+  var header = document.getElementsByClassName('navbar')[0];
+  var footer = document.getElementsByTagName('footer')[0];
+  if (!header || !footer) {
+    return;
+  }
+  return window.innerHeight - header.clientHeight - footer.clientHeight -87;
+}
+window.onresize = function(event) {
+    sizeAlbums(getHeight());
+};
+setTimeout(function () { sizeAlbums(getHeight()); }, 500);
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&callback=googleMapsInitialized"></script>
+
+</div>
+@@include('footer.html', {
+    "page-scripts": ""
+  })

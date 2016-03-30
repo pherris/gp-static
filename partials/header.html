@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Independent and locally owned and operated, Grand Performance brings you the best of all kinds of fine bicycles and bicycling products. From newbies to enthusiasts, we are happy to get everyone properly fitted with the right bike for them. Come in and say hi!">
+    <meta name="author" content="Andrew Ralston">
+    <meta property="og:url" content="http://www.gpbicycles.com" />
+    <meta property="og:title" content="Independent and locally owned and operated, Grand Performance brings you the best of all kinds of fine bicycles and bicycling products. From newbies to enthusiasts, we are happy to get everyone properly fitted with the right bike for them. Come in and say hi!" />
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Grand Performance</title>
+
+    <!-- inject:css -->
+    <!-- endinject -->
+  </head>
+
+  <body data-target=".navbar-secondary">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button">
+             
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="menu-large-screen navbar-brand" href="index.html">
+            <span class="menu-large-screen"><img src="images/logo-horiz.png"/></span> 
+          </a>
+          <!-- <span class="navbar-brand menu-small-screen">(651) 699-2640</span>
+          <a class="navbar-brand menu-small-screen" href="mailto:info@gpbicycles.com"><span class="glyphicon glyphicon-envelope"></span></a>  -->
+        </div>
+        <div class="navbar-right navbar-collapse bs-js-navbar-collapse slide-wrapper">
+          <ul class="nav navbar-nav">
+            <li class="@@if (page === 'bikes') { active }"><a href="/bikes.html">Bikes</a></li>
+            <li class="@@if (page === 'services') { active }"><a href="/services.html">Service</a></li>
+            <li class="@@if (page === 'albums') { active }"><a href="/albums.html">Photos</a></li>
+            <li class="@@if (page === 'rides') { active }"><a href="/routes.html">Rides</a></li>
+            <li class="@@if (page === 'contact') { active }"><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <script type="text/javascript">
+      var isCollapsed = true;
+      document.querySelector('.navbar button').addEventListener('click', function() {
+        var classNames = document.getElementsByClassName("slide-wrapper")[0].className;
+        document.getElementsByClassName("slide-wrapper")[0].className = isCollapsed ? classNames + ' open' : classNames.replace(' open', '');
+        isCollapsed = !isCollapsed;
+      });
+    </script>
+
+    <div class="container marketing">

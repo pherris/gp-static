@@ -1,0 +1,12 @@
+<div class="fb-hours">
+  <div class="row h6 text-center">
+    <span class="text-center" ng-repeat="(hour, days) in hours | orderBy:'$index':false">
+      <span ng-repeat="day in days" ng-if="$first || $last"> 
+        {{ $last && !$first ? ' - ' : '' }}{{ day }}
+      </span>
+      : {{ hour }}
+      <br/>
+    </span>
+  </div>
+</div>
+<!-- reverse this order with http://stackoverflow.com/questions/15266671/angular-ng-repeat-in-reverse/26635708#26635708 - angular 1.3 needed -->

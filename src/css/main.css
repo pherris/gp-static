@@ -1,0 +1,53 @@
+@media screen and (min-width: 320px) and (max-width: 480px), (min-device-width: 320px) and
+(max-device-width: 480px) and (orientation : landscape) {
+  .menu-large-screen img {
+    width: 200px;
+  }
+  .menu-small-screen {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 992px), (min-device-width: 600px) and
+(max-device-width: 992px) and (orientation : landscape) {
+  .menu-large-screen img {
+    width: 200px;
+  }
+}
+
+footer {
+  margin-top: 20px;
+}
+
+body {
+  position: relative;
+}
+
+#nav-wrapper.affix {
+  top: 0;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
+}
+p, div {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@media (max-width: 767px) {
+  .slide-wrapper.open {
+    overflow: hidden;
+    transition: height 0.15s ease-in;
+    height:100%;
+  }
+  .slide-wrapper {
+    overflow: hidden;
+    transition: height 0.15s ease-out;
+    height: 0px;
+  }
+}
+
+.img-responsive-centered {
+    margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+<div class="panel panel-default fb-comments" ng-if="post.caption != null || post.comments.data.length > 0">
+  <div class="panel-heading" ng-if="post.caption != null">
+    {{ post.caption }}
+  </div>
+  <table class="table">
+    <tbody>
+      <tr ng-repeat="comment in post.comments.data">
+        <td style="{{!$first ? 'border-top: 1px solid #dddddd;' : ''}}">
+          {{ comment.message }}
+          <span class="h6">{{ comment.from.name }} <small tooltip-placement="right" tooltip="{{ (comment.like_count > 0) ? 'likes' : '' }}"><span class="badge">{{ (comment.like_count > 0) ? comment.like_count : '' }}</span></small> </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
