@@ -12,6 +12,7 @@ var fileinclude = require('gulp-file-include'),
     cleanCSS = require('gulp-clean-css'),
     uncss = require('gulp-uncss'),
     debug = require('gulp-debug'),
+    hash = require('gulp-hash'),
     vendorCss = ['./bower_components/bootstrap-css-only/css/bootstrap.css'],
     appCss = [
       './src/css/carousel.css', 
@@ -61,15 +62,11 @@ gulp.task('watch', function () {
 gulp.task('injectCss', ['move', 'fileinclude'], function () {
   var options = {
     relative: true
-    // ,
-    // transform: function (filePath, file) {
-    //   // return file contents as string 
-    //   return file.contents.toString('utf8')
-    // }
   };
 
   var cssStream = gulp.src(vendorCss.concat(appCss))
     .pipe(concat('all.css'))
+    .pipe(hash())
     .pipe(uncss({
       html: ['./dist/*.html']
     }))
@@ -78,7 +75,6 @@ gulp.task('injectCss', ['move', 'fileinclude'], function () {
 
   return gulp.src('./dist/*.html')
     .pipe(inject(cssStream, options))
-    .on('error', console.log) // This will always inject vendor files before app files 
     .pipe(gulp.dest('./dist'));
 });
 
@@ -91,6 +87,7 @@ gulp.task('injectVendorJs', ['injectCss'], function() {
   var vendorStream = gulp.src(vendorJs)
     .pipe(uglify())
     .pipe(concat('vendor.js'))
+    .pipe(hash())
     .pipe(gulp.dest('./dist/js/'));
 
   return gulp.src('./dist/*.html')
@@ -108,6 +105,7 @@ gulp.task('injectAppJs', ['injectVendorJs'], function() {
   var appStream = gulp.src(appJs)
     .pipe(uglify())
     .pipe(concat('app.js'))
+    .pipe(hash())
     .pipe(gulp.dest('./dist/js/'));
 
   return gulp.src('./dist/*.html')
@@ -118,8 +116,10 @@ gulp.task('injectAppJs', ['injectVendorJs'], function() {
  
 gulp.task('move', ['clean'], function () {
   gulp.src(images)
+    .pipe(hash())
     .pipe(gulp.dest('./dist/images/'));
   gulp.src(angularTemplates)
+    .pipe(hash())
     .pipe(gulp.dest('./dist/templates/'));
 });
 

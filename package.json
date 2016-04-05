@@ -13,6 +13,7 @@
     "gulp-clean-css": "^2.0.4",
     "gulp-concat": "^2.6.0",
     "gulp-debug": "^2.1.2",
+    "gulp-hash": "^3.0.6",
     "gulp-inject": "^4.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-minify": "0.0.7",
