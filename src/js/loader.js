@@ -19,6 +19,13 @@ loader.run([  '$log', 'appApi',
             js.id = id;
             js.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=' + appId;
             fjs.parentNode.insertBefore(js, fjs);
+
+            window.fbAsyncInit = function() {
+              FB.Event.subscribe('edge.create', function(url) {
+                ga('send', 'social', 'facebook', 'like', url);
+              });
+            };
+
           }(document, 'script', 'facebook-jssdk', config.facebook.appId));
         });
       } catch (e) {

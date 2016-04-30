@@ -4,7 +4,7 @@
 
 .constant("ENV", {
   "name": "production",
-  "apiEndpoint": "http://www.gpbicycles.com"
+  "apiEndpoint": "http://api.gpbicycles.com"
 })
 
 ;

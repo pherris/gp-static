@@ -116,10 +116,12 @@ gulp.task('injectAppJs', ['injectVendorJs'], function() {
  
 gulp.task('move', ['clean'], function () {
   gulp.src(images)
-    .pipe(hash())
+    // .pipe(hash())
+    // .pipe(hash.manifest('assets.json'))
     .pipe(gulp.dest('./dist/images/'));
   gulp.src(angularTemplates)
-    .pipe(hash())
+    // .pipe(hash())
+    // .pipe(hash.manifest('assets.json'))
     .pipe(gulp.dest('./dist/templates/'));
 });
 
