@@ -74,7 +74,9 @@ gulp.task('injectCss', ['move', 'fileinclude'], function () {
     .pipe(gulp.dest('./dist/css/'));
 
   return gulp.src('./dist/*.html')
+    // .pipe(debug({title: 'src:'}))
     .pipe(inject(cssStream, options))
+    // .pipe(debug({title: 'inject:'}))
     .pipe(gulp.dest('./dist'));
 });
 
